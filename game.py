@@ -36,6 +36,7 @@ class Game:
     
     def start(self):
         print("Welcome to Dragons of Mugloar!\n The game will be played automatically for you so sit back and relax. There will be 10 rounds. Hopefully our knight in shining armour will win all ten of these games.")
+        input("Press any key to start the game...")
         while self.games_played < 10:
             self.game_state.update(self.mwc.startNewGame())
             self.auto_run_game()
