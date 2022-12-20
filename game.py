@@ -36,8 +36,8 @@ class Game:
     
     def start(self):
         print("Welcome to Dragons of Mugloar!\n The game will be played automatically for you so sit back and relax. There will be 10 rounds. Hopefully our knight in shining armour will win all ten of these games.")
-        input("Press any key to start the game...")
-        while self.games_played < 10:
+        input("Enter any key to start the game...")
+        while self.games_played < 100:
             self.game_state.update(self.mwc.startNewGame())
             self.auto_run_game()
 
@@ -54,6 +54,8 @@ class Game:
             #print("lives left:" + str(self.game_state["lives"]))
             self.solve_safest_ad()
             self.check_for_items()
+            if self.game_state["score"] >= 1000:
+                return
         
         # save scores in a a file
         #self.save_score()
@@ -65,14 +67,14 @@ class Game:
         
         self.purchase_item(CLAW_SHARPENING, 100)
         self.purchase_item(BOOK_OF_TRICKS, 100)
-        #self.purchase_item(POTION_OF_STRONGER_WINGS, 100)
+        self.purchase_item(POTION_OF_STRONGER_WINGS, 100)
         self.purchase_item(COPPER_PLATING, 100)
-        #self.purchase_item(GASOLINE, 100)
+        self.purchase_item(GASOLINE, 100)
         self.purchase_item(BOOK_OF_MEGATRICKS, 300)
         self.purchase_item(CLAW_HONING, 300)
-        #self.purchase_item(ROCKET_FUEL, 300)
+        self.purchase_item(ROCKET_FUEL, 300)
         self.purchase_item(IRON_PLATING, 300)
-        #self.purchase_item(POTION_OF_AWESOME_WINGS, 300)
+        self.purchase_item(POTION_OF_AWESOME_WINGS, 300)
 
         if self.game_state["gold"] > 600:
             print("Purchasing " + CLAW_HONING + "!")
